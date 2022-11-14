@@ -1,4 +1,6 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using ApiMakeUpStore.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace ApiMakeUpStore.Extensions
 {
@@ -16,14 +18,14 @@ namespace ApiMakeUpStore.Extensions
 
         public static void AddRepositories(this IServiceCollection services)
         {
-           // services.AddTransient<IRepository<Equipment>, EquipmentRepository>();
+           // services.AddTransient<IRepository<model>, EquipmentRepository>();
            
 
         }
 
         public static void AddServices(this IServiceCollection services)
         {
-            //services.AddTransient<ILogsService, LogsService>();
+            //services.AddTransient<ILogsService, modelService>();
            
 
         }

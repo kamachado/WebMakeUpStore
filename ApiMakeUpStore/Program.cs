@@ -1,4 +1,5 @@
 using ApiMakeUpStore.Extensions;
+using ApiMakeUpStore.Middleware;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text.Json.Serialization;
