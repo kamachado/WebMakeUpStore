@@ -1,4 +1,6 @@
 ﻿using ApiMakeUpStore.Data;
+using ApiMakeUpStore.Models;
+using ApiMakeUpStore.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -18,16 +20,14 @@ namespace ApiMakeUpStore.Extensions
 
         public static void AddRepositories(this IServiceCollection services)
         {
-           // services.AddTransient<IRepository<model>, EquipmentRepository>();
-           
-
+            services.AddTransient<IRepository<Brand>, BrandRepository>();
+            services.AddTransient<IRepository<Product>, ProductRepository>();
         }
 
         public static void AddServices(this IServiceCollection services)
         {
-            //services.AddTransient<ILogsService, modelService>();
-           
-
+            services.AddTransient<IBrandService, BrandService>();
+            services.AddTransient<IProductService, ProductService>();
         }
         public static void AddSwagger(this IServiceCollection services, IConfiguration configuration)
         {

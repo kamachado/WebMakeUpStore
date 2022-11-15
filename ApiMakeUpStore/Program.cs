@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text.Json.Serialization;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 var configuration = builder.Configuration;
@@ -20,9 +21,9 @@ builder.Services.AddSwaggerGen(a =>
 {
     a.SwaggerDoc("v1.0", new OpenApiInfo
     {
-        Title = "API Logs Reader",
+        Title = "API MakeUp Store",
         Version = "v1.0",
-        Description = "APIs de leitura de Logs "
+        Description = "APIs of MakeUp Store "
     });
 
     // Set the comments path for the Swagger JSON and UI.**
