@@ -16,7 +16,7 @@ namespace ApiMakeUpStore.Controllers
         }
 
         /// <summary>
-        /// Busca item por ID
+        /// search by Id
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
