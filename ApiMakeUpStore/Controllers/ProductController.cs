@@ -119,7 +119,6 @@ namespace ApiMakeUpStore.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {

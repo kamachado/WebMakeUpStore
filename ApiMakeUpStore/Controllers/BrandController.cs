@@ -16,7 +16,7 @@ namespace ApiMakeUpStore.Controllers
         /// <summary>
         /// Brand's Country
         /// </summary>
-        [FromQuery(Name = "country")] public string BrandCountry { get; set; } = null;
+        [FromQuery(Name = "country")] public string? BrandCountry { get; set; } = null;
 
         public void Deconstruct(out string? name, out string? country)
         {
@@ -62,7 +62,7 @@ namespace ApiMakeUpStore.Controllers
         /// <summary>
         /// Insert a new Brand
         /// </summary>
-        /// <param name="queryFilter"></param>
+        /// <param name="dataBrand"></param>
         /// <returns></returns>
         [HttpPost]
         public async Task Post([FromBody] Brand dataBrand)
@@ -86,23 +86,25 @@ namespace ApiMakeUpStore.Controllers
         /// <summary>
         /// Update the country of  some Brand
         /// </summary>
-        /// <param name="dataBrand"></param>
+        /// <param name="nameBrand"></param>
+        /// <param name="country"></param>
         /// <returns></returns>
-        [HttpPost]
-        public async Task UpdateCountry([FromBody] Brand dataBrand)
+        [HttpPut("country/{nameBrand}")]
+        public async Task UpdateCountry([FromQuery] string nameBrand, [FromBody] string country )
         {
-            await _brandService.UpdateAsync(b=>b.Name == dataBrand.Name,b=> b.Country = dataBrand.Country);
+            await _brandService.UpdateAsync(b=>b.Name == nameBrand, b=> b.Country = country);
         }
 
         /// <summary>
-        /// Update the name of  some Brand
+        ///  Update the name of  some Brand
         /// </summary>
-        /// <param name="dataBrand"></param>
+        /// <param name="idBrand"></param>
+        /// <param name="nameBrand"></param>
         /// <returns></returns>
-        [HttpPost]
-        public async Task UpdateName([FromBody] Brand dataBrand)
+        [HttpPut("name/{nameBrand}")]
+        public async Task UpdateName([FromBody] int idBrand, [FromQuery]  string nameBrand)
         {
-            await _brandService.UpdateAsync(b => b.Id == dataBrand.Id, b => b.Name = dataBrand.Name);
+            await _brandService.UpdateAsync(b => b.Id == idBrand, b => b.Name = nameBrand);
         }
     }
 }
