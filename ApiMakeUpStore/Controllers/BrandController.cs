@@ -25,6 +25,13 @@ namespace ApiMakeUpStore.Controllers
         }
     }
 
+    public class DataBrand
+    {
+       public string? NameBrand { get; set; }
+
+        public string? BrandCountry { get; set; }
+    }
+
         
     [Route("brand")]
     [ApiController]
@@ -65,9 +72,15 @@ namespace ApiMakeUpStore.Controllers
         /// <param name="dataBrand"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task Post([FromBody] Brand dataBrand)
+        public async Task Post([FromBody] DataBrand dataBrand)
         {
-           await _brandService.Insert(dataBrand);
+            var newBrand = new Brand
+            {
+                Name = dataBrand.NameBrand,
+                Country = dataBrand.BrandCountry
+            };
+            
+           await _brandService.Insert(newBrand);
         }
 
         /// <summary>

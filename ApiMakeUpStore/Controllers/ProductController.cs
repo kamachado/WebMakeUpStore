@@ -50,6 +50,16 @@ namespace ApiMakeUpStore.Controllers
         }
     }
 
+    public class DataProduct
+    {
+        public string Name { get; set; }
+        public string BodyPart { get; set; }
+        public int Brand { get; set; }
+        public double Price { get; set; }
+        public string Type { get; set; }
+        public string Description { get; set; }
+    }
+
 
     [Route("product")]
     [ApiController]
@@ -92,14 +102,31 @@ namespace ApiMakeUpStore.Controllers
         }
 
         /// <summary>
-        /// Insert a new Product
+        ///  Insert a new Product
         /// </summary>
         /// <param name="dataProduct"></param>
+        /// <param name="file"></param>
         /// <returns></returns>
+        /// <exception cref="ApiException"></exception>
         [HttpPost]
-        public async Task Post([FromBody] Product dataProduct)
+        public async Task Post([FromBody] DataProduct  dataProduct,[FromBody] IFormFile file)
         {
-            await _productService.Insert(dataProduct);
+            if (file == null) throw new ApiException(400, "It is required send a photo");
+
+            var newProduct = new Product
+            {
+                Name = dataProduct.Name,
+                Price = dataProduct.Price,
+                Description = dataProduct.Description,
+                Type = dataProduct.Type,
+                BodyPart = dataProduct.BodyPart,
+                IdBrand = dataProduct.Brand
+            };
+
+            var format = _productService.GetFileFormat(file.FileName);
+            if (format == ".jpeg" || format == ".png" || format == ".jpg") await _productService.InsertProduct(newProduct, file);
+            else throw new ApiException(400, "the file must be a photo (jpeg / jpg / png)" );
+
         }
 
         /// <summary>

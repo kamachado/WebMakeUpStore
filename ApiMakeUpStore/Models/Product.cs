@@ -28,6 +28,7 @@ namespace ApiMakeUpStore.Models
         [Column("TYPE_PRODUCT")]
         public string Type { get; set; }
 
+        [Required]
         [Column("BODYPART_PRODUCT")]
         public string BodyPart { get; set; }
 
@@ -39,9 +40,8 @@ namespace ApiMakeUpStore.Models
         [Column("QUANTITY_PRODUCT")]
         public int Quantity { get; set; }
 
-        [Required]
         [Column("PHOTO_PRODUCT")]
-        public string Photo { get; set; }
+        public string? Photo { get; set; }
 
         [JsonIgnore]
         [ForeignKey("IdBrand")]
