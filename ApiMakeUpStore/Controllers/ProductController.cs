@@ -13,17 +13,17 @@ namespace ApiMakeUpStore.Controllers
         /// <summary>
         /// Product's Type 
         /// </summary>
-        [FromQuery(Name = "type")] public String? Type { get; set; } = null;
+        [FromQuery(Name = "type")] public string? Type { get; set; } = null;
 
         /// <summary>
         /// Product's Name
         /// </summary>
-        [FromQuery(Name = "name")] public String? Name { get; set; } = null;
+        [FromQuery(Name = "name")] public string? Name { get; set; } = null;
 
         /// <summary>
         /// Product's Body part
         /// </summary>
-        [FromQuery(Name = "bodyPart")] public string BodyPart { get; set; } = null;
+        [FromQuery(Name = "bodyPart")] public string? BodyPart { get; set; } = null;
 
         /// <summary>
         /// Product's Brand
@@ -94,7 +94,7 @@ namespace ApiMakeUpStore.Controllers
         /// <summary>
         /// Insert a new Product
         /// </summary>
-        /// <param name="queryFilter"></param>
+        /// <param name="dataProduct"></param>
         /// <returns></returns>
         [HttpPost]
         public async Task Post([FromBody] Product dataProduct)
