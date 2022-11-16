@@ -20,6 +20,7 @@ namespace ApiMakeUpStore.Data.Dtos.Product
         public string BodyPart { get; set; }
 
         [Required(ErrorMessage = "The price is required")]
+        [Range(0.01, 100000000000, ErrorMessage = "the price can't be less than 0.01")]
         public double Price { get; set; }
 
         [Required(ErrorMessage = "The quantity is required")]

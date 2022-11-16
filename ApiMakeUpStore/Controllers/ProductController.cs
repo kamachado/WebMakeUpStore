@@ -88,7 +88,7 @@ namespace ApiMakeUpStore.Controllers
             if (minPrice != 0) condition = condition.And(p => p.Price <= maxPrice);
 
             var result = await _productService.GetList(condition);
-            var products = _mapper.Map<List<ReadProductDto>>(result);
+            var products = _mapper.Map<IList<ReadProductDto>>(result);
             var totalCount = await _productService.GetCount(condition);
 
             return new ListResult<ReadProductDto>(totalCount, products);
@@ -103,7 +103,7 @@ namespace ApiMakeUpStore.Controllers
         /// <returns></returns>
         /// <exception cref="ApiException"></exception>
         [HttpPost]
-        public async Task Post([FromBody] CreateProductDto dataProduct,[FromBody] IFormFile file)
+        public async Task Post([FromQuery]CreateProductDto dataProduct,IFormFile file)
         {
             if (file == null) throw new ApiException(400, "It is required send a photo");
 

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ApiMakeUpStore.Models
@@ -17,5 +18,8 @@ namespace ApiMakeUpStore.Models
         [Required(ErrorMessage = "The country is required")]
         [Column("COUNTRY_BRAND")]
         public string Country { get; set; }
+
+        public ICollection<Product> Product{ get; set; }
+
     }
 }

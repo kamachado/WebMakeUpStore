@@ -56,7 +56,7 @@ namespace ApiMakeUpStore.Controllers
             if (country != null) condition = condition.And(b => b.Country == country);
 
             var result = await _brandService.GetList(condition);
-            var brands = _mapper.Map<List<ReadBrandDto>>(result);
+            IList<ReadBrandDto> brands = _mapper.Map<IList<ReadBrandDto>>(result);
 
             var totalCount = await _brandService.GetCount(condition);
 

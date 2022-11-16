@@ -32,6 +32,7 @@ builder.Services.AddSwaggerGen(a =>
     a.IncludeXmlComments(xmlPath);
 });
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddServices();
 builder.Services.AddRepositories();
 builder.Services.AddControllers().AddJsonOptions(x =>

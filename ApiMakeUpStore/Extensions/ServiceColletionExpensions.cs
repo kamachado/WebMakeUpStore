@@ -18,7 +18,8 @@ namespace ApiMakeUpStore.Extensions
 
         }
 
-        public static void AddRepositories(this IServiceCollection services)
+
+            public static void AddRepositories(this IServiceCollection services)
         {
             services.AddTransient<IRepository<Brand>, BrandRepository>();
             services.AddTransient<IRepository<Product>, ProductRepository>();

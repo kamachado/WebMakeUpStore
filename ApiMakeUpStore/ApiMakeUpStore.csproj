@@ -9,14 +9,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Remove="NovaPasta\**" />
-		<Content Remove="NovaPasta\**" />
-		<EmbeddedResource Remove="NovaPasta\**" />
-		<None Remove="NovaPasta\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="12.0.0" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.11" />
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.11">
 			<PrivateAssets>all</PrivateAssets>
@@ -24,6 +17,10 @@
 		</PackageReference>
 		<PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="arquivos\images\" />
 	</ItemGroup>
 	<PropertyGroup>
 		<PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
