@@ -12,33 +12,35 @@ namespace ApiMakeUpStore.Models
         [Column("ID_PRODUCT")]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The name is required")]
         [Column("NAME_PRODUCT")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The Id of Brand is required")]
         [Column("ID_Brand")]
         public int IdBrand { get; set; }
 
-        [Required]
-        [Column("DESCRIPTION_PRODUCT")]
-        public string Description { get; set; }
 
-        [Required]
+        [Column("DESCRIPTION_PRODUCT")]
+        public string? Description { get; set; }
+
+        [Required(ErrorMessage = "The type is required")]
         [Column("TYPE_PRODUCT")]
         public string Type { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The body part is required")]
         [Column("BODYPART_PRODUCT")]
         public string BodyPart { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The price is required")]
         [Column("PRICE_PRODUCT")]
+        [Range(0.01,100000000000, ErrorMessage = "the price can't be less than 0.01")]
         public double Price { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The quantity is required")]
         [Column("QUANTITY_PRODUCT")]
         public int Quantity { get; set; }
+
 
         [Column("PHOTO_PRODUCT")]
         public string? Photo { get; set; }

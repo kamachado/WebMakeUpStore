@@ -10,11 +10,11 @@ namespace ApiMakeUpStore.Models
         [Column("ID_BRAND")]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The name is required")]
         [Column("NAME_BRAND")]
         public string Name { get; set; }
-       
-        [Required]
+
+        [Required(ErrorMessage = "The country is required")]
         [Column("COUNTRY_BRAND")]
         public string Country { get; set; }
     }

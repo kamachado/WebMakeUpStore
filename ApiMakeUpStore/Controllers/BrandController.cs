@@ -1,6 +1,8 @@
-﻿using ApiMakeUpStore.Data.Extensions_Data;
+﻿using ApiMakeUpStore.Data.Dtos.Brand;
+using ApiMakeUpStore.Data.Extensions_Data;
 using ApiMakeUpStore.Models;
 using ApiMakeUpStore.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 
@@ -25,22 +27,17 @@ namespace ApiMakeUpStore.Controllers
         }
     }
 
-    public class DataBrand
-    {
-       public string? NameBrand { get; set; }
-
-        public string? BrandCountry { get; set; }
-    }
-
         
     [Route("brand")]
     [ApiController]
     public class BrandController : BaseController<Brand>
     {
         private readonly IBrandService _brandService;
-        public BrandController(IBrandService service) : base(service)
+        private IMapper _mapper;
+        public BrandController(IBrandService service, IMapper mapper) : base(service)
         {
             _brandService = service;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -49,7 +46,7 @@ namespace ApiMakeUpStore.Controllers
         /// <param name="queryFilter"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ListResult<Brand>> GetList([FromQuery] BrandGetListQueryFilter queryFilter)
+        public async Task<ListResult<ReadBrandDto>> GetList([FromQuery] BrandGetListQueryFilter queryFilter)
         {
             var (name,country) = queryFilter;
 
@@ -59,10 +56,11 @@ namespace ApiMakeUpStore.Controllers
             if (country != null) condition = condition.And(b => b.Country == country);
 
             var result = await _brandService.GetList(condition);
+            var brands = _mapper.Map<List<ReadBrandDto>>(result);
 
             var totalCount = await _brandService.GetCount(condition);
 
-            return new ListResult<Brand>(totalCount,result);
+            return new ListResult<ReadBrandDto>(totalCount, brands);
 
         }
 
@@ -72,15 +70,11 @@ namespace ApiMakeUpStore.Controllers
         /// <param name="dataBrand"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task Post([FromBody] DataBrand dataBrand)
+        public async Task Post([FromBody] CreateBrandDto dataBrand)
         {
-            var newBrand = new Brand
-            {
-                Name = dataBrand.NameBrand,
-                Country = dataBrand.BrandCountry
-            };
-            
-           await _brandService.Insert(newBrand);
+            var brand = _mapper.Map<Brand>(dataBrand);
+
+            await _brandService.Insert(brand);
         }
 
         /// <summary>

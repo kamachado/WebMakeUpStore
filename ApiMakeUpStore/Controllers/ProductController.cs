@@ -1,7 +1,9 @@
 ﻿using ApiMakeUpStore.Core;
+using ApiMakeUpStore.Data.Dtos.Product;
 using ApiMakeUpStore.Data.Extensions_Data;
 using ApiMakeUpStore.Models;
 using ApiMakeUpStore.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 
@@ -50,25 +52,17 @@ namespace ApiMakeUpStore.Controllers
         }
     }
 
-    public class DataProduct
-    {
-        public string Name { get; set; }
-        public string BodyPart { get; set; }
-        public int Brand { get; set; }
-        public double Price { get; set; }
-        public string Type { get; set; }
-        public string Description { get; set; }
-    }
-
 
     [Route("product")]
     [ApiController]
     public class ProductController : BaseController<Product>
     {
         private readonly IProductService _productService;
-        public ProductController(IProductService service) : base(service)
+        private IMapper _mapper;
+        public ProductController(IProductService service, IMapper mapper) : base(service)
         {
             _productService = service;  
+            _mapper = mapper;
         }
 
 
@@ -78,7 +72,7 @@ namespace ApiMakeUpStore.Controllers
         /// <param name="queryFilter"></param>
         /// <returns></returns>
         [HttpGet]
-        public async Task<ListResult<Product>> GetList([FromQuery] ProductGetListQueryFilter queryFilter)
+        public async Task<ListResult<ReadProductDto>> GetList([FromQuery] ProductGetListQueryFilter queryFilter)
         {
             var (type,bodyPart,brand,
             maxPrice,minPrice ) = queryFilter;
@@ -94,10 +88,10 @@ namespace ApiMakeUpStore.Controllers
             if (minPrice != 0) condition = condition.And(p => p.Price <= maxPrice);
 
             var result = await _productService.GetList(condition);
-
+            var products = _mapper.Map<List<ReadProductDto>>(result);
             var totalCount = await _productService.GetCount(condition);
 
-            return new ListResult<Product>(totalCount, result);
+            return new ListResult<ReadProductDto>(totalCount, products);
 
         }
 
@@ -109,19 +103,11 @@ namespace ApiMakeUpStore.Controllers
         /// <returns></returns>
         /// <exception cref="ApiException"></exception>
         [HttpPost]
-        public async Task Post([FromBody] DataProduct  dataProduct,[FromBody] IFormFile file)
+        public async Task Post([FromBody] CreateProductDto dataProduct,[FromBody] IFormFile file)
         {
             if (file == null) throw new ApiException(400, "It is required send a photo");
 
-            var newProduct = new Product
-            {
-                Name = dataProduct.Name,
-                Price = dataProduct.Price,
-                Description = dataProduct.Description,
-                Type = dataProduct.Type,
-                BodyPart = dataProduct.BodyPart,
-                IdBrand = dataProduct.Brand
-            };
+            var newProduct = _mapper.Map<Product>(dataProduct);
 
             var format = _productService.GetFileFormat(file.FileName);
             if (format == ".jpeg" || format == ".png" || format == ".jpg") await _productService.InsertProduct(newProduct, file);
