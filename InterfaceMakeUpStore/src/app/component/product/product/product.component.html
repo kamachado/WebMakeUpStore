@@ -1,0 +1,17 @@
+<div class="pensamento model1 ff-roboto-mono">
+  <img src="{{ product.photo}}" alt="pruduct's photo">
+  <h4 class="conteudo"><b>{{ product.name }}</b></h4>
+  <p class="autoria">{{ product.description }}</p>
+  <p class="autoria"><b>Type:{{ product.type}}</b></p>
+  <p class="autoria"><b>Type:{{ product.bodyPart}}</b></p>
+  <div class="acoes">
+    <p>Quantity:{{product.quantity}}</p>
+    <p>Price:{{product.price}}</p>
+    <button class="botao-editar">
+      <img src="/assets/imagens/icone-editar.png" routerLink="/pensamentos/editarPensamento/{{product.id}}" alt="Ícone de editar">
+    </button>
+    <button class="botao-excluir" routerLink="/pensamentos/excluirPensamento/{{product.id}}">
+      <img src="/assets/imagens/icone-excluir.png" alt="Ícone de excluir">
+    </button>
+  </div>
+</div>
