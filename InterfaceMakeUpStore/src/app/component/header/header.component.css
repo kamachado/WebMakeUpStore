@@ -10,31 +10,31 @@
     align-items: center;
     justify-content: space-between;
   }
-  
+
   .headerpage .logo  {
     width: 50%;
     padding: 2rem 3rem;
     display:contents;
   }
-  
+
   .headerpage .logo .img-logo {
     width: 50%;
     max-width: 350px;
     margin-left: 5em;
     margin-bottom: 2rem;
   }
-  
+
   .headerpage .image{
     width: 15%;
     height: 15em;
     margin-right: 5em;
   }
-  
+
   .headerpage p {
     font-size: 1em;
     color: #6BD1FF;
   }
-  
+
   @media (max-width: 576px) {
     .headerpage .logo {
       padding: 2rem;
@@ -43,7 +43,7 @@
       font-size: 1.5rem
     }
   }
-  
+
   @media (max-width: 768px) {
     .headerpage .logo {
       width: 90%;
@@ -56,7 +56,7 @@
   .li-menu-header{
     display: flex;
     align-items: center;
-    color: rgb(7, 84, 228);
+    color: #34b3fa;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
   }

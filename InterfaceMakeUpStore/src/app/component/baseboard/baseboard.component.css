@@ -1,0 +1,40 @@
+footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "TextCopyright LogoBaseBord .";
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.TextCopyright {
+  justify-self: center;
+  grid-area: TextCopyright;
+
+}
+
+.LogoBaseBord {
+  justify-self: center;
+  grid-area: LogoBaseBord;
+  height: 6em;
+}
+
+footer small {
+  color: #34b3fa;
+}
+
+@media (max-width: 576px) {
+  .header .logo {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  footer {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+}
