@@ -1,0 +1,123 @@
+<section class="container create-product ff-inter">
+  <header class="header">
+    <h2>
+      Register a <br />
+      new product:
+    </h2>
+  </header>
+  <form>
+    <label for="name">Name</label>
+    <input
+      type="textarea"
+      class="input"
+      id="name"
+      name="name"
+      placeholder="Enter the name"
+    />
+    <label for="description">Description</label>
+    <input
+      type="text"
+      class="input"
+      id="description"
+      name="description"
+      placeholder="Enter the description"
+    />
+    <label for="type">Select a type</label>
+    <div class="container-radio">
+      <div class="radio-model">
+        <label for="model1">
+          <input type="radio" id="model1" value="blush" name="model-card" />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Eyeshadow</span>
+        </label>
+        <div class="model model1 ff-roboto-mono">
+          <img
+            style="height: 4em; width: 5em; margin-left: 1em"
+            src="../../../../assets/Images/eyeshadow.png"
+            alt="person using blush"
+          />
+        </div>
+      </div>
+      <div class="radio-model">
+        <label for="model2">
+          <input type="radio" id="model2" value="blush" name="model-card" />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Blush</span>
+        </label>
+        <div class="model model2 ff-roboto-mono">
+          <img
+            style="height: 4em; width: 5em"
+            src="../../../../assets/Images/blush.png"
+            alt="person using blush"
+          />
+        </div>
+      </div>
+      <div class="radio-model">
+        <label for="model3">
+          <input type="radio" id="model3" value="lipstick" name="model-card" />
+          <div class="custom-radio">
+            <span></span>
+          </div>
+          <span>Lipstick</span>
+        </label>
+        <div class="model model3 ff-roboto-mono">
+          <img
+            style="height: 4em; width: 5em"
+            src="../../../../assets/Images/lipstick.png"
+            alt="person using lipstick"
+          />
+        </div>
+      </div>
+      <div>
+        <div class="radio-model">
+          <label for="model4">
+            <input
+              type="radio"
+              id="model4"
+              value="lipstick"
+              name="model-card"
+            />
+            <div class="custom-radio">
+              <span></span>
+            </div>
+            <span>Skincare</span>
+          </label>
+          <div class="model model4 ff-roboto-mono">
+            <img
+              style="height: 4em; width: 5em"
+              src="../../../../assets/Images/skincare.png"
+              alt="person doing skincare"
+            />
+          </div>
+        </div>
+      </div>
+
+    </div>
+      <label for="bodyPart">Select a body part</label>
+      <select class="input" style="height:5em" >
+        <option valeu="eyes">Eyes</option>
+        <option valeu="face">Face</option>
+        <option valeu="Lips">Lips</option>
+        <option valeu="Hands">Hands</option>
+        <option valeu="Feet">Feet</option>
+      </select>
+      <label for="brand">Select a brand</label>
+      <select class="input" style="height:5em"  >
+        <option valeu="brand">Brand</option>
+      </select>
+      <label for="price">Price</label>
+      <input class="input" type="number" id="price" />
+      <label for="quantity">Quantity</label>
+      <input class="input" type="number" id="quantity"/>
+      <label for="photo">Photo</label>
+      <input class="input" type="file" id="photo" />
+    <div class="action">
+      <button class="button">Save</button>
+      <button class="button">Cancel</button>
+    </div>
+  </form>
+</section>
