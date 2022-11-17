@@ -9,6 +9,10 @@ export class CreateProductComponent implements OnInit {
 
   constructor() { }
 
+  createProduct(){
+    alert("yes");
+  }
+
   ngOnInit(): void {
   }
 

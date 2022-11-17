@@ -59,6 +59,11 @@
     color: #34b3fa;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-weight: 700;
+    cursor: pointer;
+  }
+
+  .li-menu-header:hover{
+    color: #0090e4;
   }
 
   .menu-header{

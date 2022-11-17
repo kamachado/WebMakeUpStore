@@ -14,11 +14,6 @@
   border-radius: 1em;
   color: #f8f9fe;
   height: 2em;
-  cursor: pointer;
-}
-
-.button:hover{
-  background-color: #4097fa;
 }
 
 .create-product {

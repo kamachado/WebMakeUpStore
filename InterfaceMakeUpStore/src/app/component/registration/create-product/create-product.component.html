@@ -98,7 +98,7 @@
 
     </div>
       <label for="bodyPart">Select a body part</label>
-      <select class="input" style="height:5em" >
+      <select class="input"  >
         <option valeu="eyes">Eyes</option>
         <option valeu="face">Face</option>
         <option valeu="Lips">Lips</option>
@@ -106,17 +106,17 @@
         <option valeu="Feet">Feet</option>
       </select>
       <label for="brand">Select a brand</label>
-      <select class="input" style="height:5em"  >
+      <select class="input"  >
         <option valeu="brand">Brand</option>
       </select>
       <label for="price">Price</label>
-      <input class="input" type="number" id="price" />
+      <input class="input" type="number" id="price" placeholder="Enter the price"/>
       <label for="quantity">Quantity</label>
-      <input class="input" type="number" id="quantity"/>
+      <input class="input" type="number" id="quantity" placeholder="Enter the quantity"/>
       <label for="photo">Photo</label>
-      <input class="input" type="file" id="photo" />
+      <input class="input" type="file" id="photo"  placeholder="Select the photo"/>
     <div class="action">
-      <button class="button">Save</button>
+      <button (click)="createProduct()" class="button">Save</button>
       <button class="button">Cancel</button>
     </div>
   </form>
