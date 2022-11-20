@@ -1,4 +1,5 @@
 export interface Product{
+
   id?: number,
   name: string,
   description:string,
@@ -9,3 +10,13 @@ export interface Product{
   idBrand:number,
   photo:string
 }
+
+export interface ResultListProduct{
+
+  totalCount: number,
+  result: Product[]
+}
+
+
+
+

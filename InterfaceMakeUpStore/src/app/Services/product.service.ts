@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../Models/Product';
+import { Product, ResultListProduct } from '../Models/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  geList(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.API)
+  getList(): Observable<ResultListProduct> {
+    return this.http.get<ResultListProduct>(this.API)
   }
 
   post(product: Product): Observable<Product> {
