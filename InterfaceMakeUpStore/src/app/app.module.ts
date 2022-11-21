@@ -11,6 +11,7 @@ import { ProductListComponent } from './component/List/product-list/product-list
 import { ProductComponent } from './component/product/product/product.component';
 import { HttpClientModule} from '@angular/common/http';
 import { FirstPageComponent } from './component/registration/first-page/first-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FirstPageComponent } from './component/registration/first-page/first-pa
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

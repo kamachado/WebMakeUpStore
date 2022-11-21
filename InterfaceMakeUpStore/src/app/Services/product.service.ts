@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product, ResultListProduct } from '../Models/Product';
+import { Product, ProductData, ResultListProduct } from '../Models/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +16,9 @@ export class ProductService {
     return this.http.get<ResultListProduct>(this.API)
   }
 
-  post(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.API, product)
+  post(product: ProductData): void {
+    const url = `${this.API}/?Name=${product.name}&IdBrand=${product.idBrand}&Description=${product.description}&Type=${product.type}&BodyPart=${product.bodyPart}&Price=${product.price}&Quantity=${product.quantity}`
+    this.http.post<ProductData>(url, product.photo)
   }
 
   update(product: Product): Observable<Product> {

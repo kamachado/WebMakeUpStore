@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-create-brand',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-brand.component.css']
 })
 export class CreateBrandComponent implements OnInit {
+  
+
 
   constructor() { }
 
