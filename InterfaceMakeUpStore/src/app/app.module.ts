@@ -10,6 +10,7 @@ import { CreateBrandComponent } from './component/registration/create-brand/crea
 import { ProductListComponent } from './component/List/product-list/product-list.component';
 import { ProductComponent } from './component/product/product/product.component';
 import { HttpClientModule} from '@angular/common/http';
+import { FirstPageComponent } from './component/registration/first-page/first-page.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule} from '@angular/common/http';
     CreateProductComponent,
     CreateBrandComponent,
     ProductListComponent,
-    ProductComponent
+    ProductComponent,
+    FirstPageComponent
   ],
   imports: [
     BrowserModule,

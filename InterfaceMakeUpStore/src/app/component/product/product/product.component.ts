@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit {
      photo:''
   };
 
+  
   constructor() { }
 
   ngOnInit(): void {

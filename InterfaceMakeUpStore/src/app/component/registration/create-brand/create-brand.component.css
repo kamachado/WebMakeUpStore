@@ -7,13 +7,17 @@
 
 .button {
   margin: 5px;
-  margin-top: 70px;
   width: 200px;
   background-color: #154580;
   border: none;
   border-radius: 1em;
   color: #f8f9fe;
-  height: 2em;
+  height: 3em;
+  cursor: pointer;
+}
+
+.button:hover{
+  background-color: #3d7cc9;
 }
 
 .create-product {
