@@ -1,6 +1,6 @@
 export interface Product{
 
-  id?: number,
+  id: number,
   name: string,
   description:string,
   type:string,
@@ -19,15 +19,13 @@ export interface ResultListProduct{
 
 
 export interface ProductData{
-  id?: number,
   name: string,
   description:string,
   type:string,
   bodyPart: string,
   price:number,
   quantity:number,
-  idBrand:number,
-  photo:FormData
+  idBrand:number
 }
 
 

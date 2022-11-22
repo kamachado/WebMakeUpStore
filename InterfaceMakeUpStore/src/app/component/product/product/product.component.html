@@ -1,18 +1,22 @@
 
-<div class="pensamento model1 ff-roboto-mono">
-  <img src="{{product.photo.split('\\').join('/')}}" alt="pruduct's photo">
+<div class="product  ff-roboto-mono">
+  <img style="height: 130px;margin-left: 50px;" src="../../../../assets/Images/{{product.type}}.png" alt="pruduct's type photo">
   <h4 class="conteudo"><b>{{ product.name }}</b></h4>
-  <p class="autoria">{{ product.description }}</p>
-  <p class="autoria"><b>Type:{{ product.type}}</b></p>
-  <p class="autoria"><b>Type:{{ product.bodyPart}}</b></p>
-  <div class="acoes">
+  <p class="info">{{ product.description }}</p>
+  <p class="info"><b>Type:{{ product.type}}</b></p>
+  <p class="info"><b>Type:{{ product.bodyPart}}</b></p>
+  <div class="actions" >
+    <div style="display: flex;">
     <p>Quantity:{{product.quantity}}</p>
+    <button class="button-edit">
+      <img style="width: 15px;" src="../../../../assets/Images/icon-edit.png"routerLink="/product/editProduct/{{product.id}}" alt="Icon edit">
+    </button>
+  </div>
     <p>Price:{{product.price}}</p>
-    <button class="botao-editar">
-      <img src="../../../../assets/Images/icone-editar.png"routerLink="/pensamentos/editarPensamento/{{product.id}}" alt="Ícone de editar">
+    <div>
+    <button  class="button-delete" routerLink="/product/deleteProduct/{{product.id}}">
+      <img src="../../../../assets/Images/icon-delete.png" alt="Icon delete">
     </button>
-    <button class="botao-excluir" routerLink="/pensamentos/excluirPensamento/{{product.id}}">
-      <img src="../../../../assets/Images/icone-excluir.png" alt="Ícone de excluir">
-    </button>
+  </div>
   </div>
 </div>

@@ -111,13 +111,13 @@ namespace ApiMakeUpStore.Controllers
         /// <summary>
         /// Update the quantity of  some Product
         /// </summary>
-        /// <param name="nameProduct"></param>
+        /// <param name="id"></param>
         /// <param name="quantityProduct"></param>
         /// <returns></returns>
-        [HttpPost("{nameProduct}")]
-        public async Task UpdateQuantity([FromQuery] string nameProduct, [FromBody] int quantityProduct)
+        [HttpPost("update/{id}")]
+        public async Task UpdateQuantity(int id, [FromBody] int quantityProduct)
         {
-            await _productService.UpdateAsync(p => p.Name == nameProduct, p => p.Quantity = quantityProduct);
+            await _productService.UpdateAsync(p => p.Id == id, p => p.Quantity = quantityProduct);
         }
 
         /// <summary>

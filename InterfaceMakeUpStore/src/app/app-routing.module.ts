@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ProductDeleteComponent } from './component/delete/product-delete/product-delete.component';
+import { ProductEditComponent } from './component/edit/product-edit/product-edit.component';
 import { ProductListComponent } from './component/List/product-list/product-list.component';
 import { CreateBrandComponent } from './component/registration/create-brand/create-brand.component';
 import { CreateProductComponent } from './component/registration/create-product/create-product.component';
@@ -26,7 +28,16 @@ const routes: Routes = [
   {
     path: 'registration',
     component: FirstPageComponent
+  },
+  {
+    path: 'product/deleteProduct/:id',
+    component: ProductDeleteComponent
+  },
+  {
+    path: 'product/editProduct/:id',
+    component:ProductEditComponent
   }
+
 ];
 
 @NgModule({

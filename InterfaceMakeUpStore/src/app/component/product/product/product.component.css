@@ -1,64 +1,59 @@
-.acoes {
+.actions {
   display: flex;
-  justify-content: flex-end
+  flex-direction: column;
 }
 
-.botao-excluir {
+.button-delete {
   border: none;
   cursor: pointer;
   margin-left: 5px;
   margin-top: 10px;
+  background: transparent;
 }
 
-.botao-editar {
+.button-delete:hover{
+  color: aqua;
+}
+
+
+
+.button-edit {
   border: none;
   cursor: pointer;
   margin-right: 10px;
   margin-top: 10px;
+  background: transparent;
+}
+.button-edit:hover{
+  color: aqua;
 }
 
-.pensamento {
+.product {
+  border: solid 1px #34b3fa;
+  padding: 2em;
+  border-radius: 40px;
   background-color: #F8F9FE;
   padding: 1rem;
   box-sizing: border-box;
+  width: 280px;
 }
 
-.pensamento .conteudo {
+.product .conteudo {
   margin: 1rem auto;
   word-wrap: break-word;
 }
 
-.pensamento .autoria {
+.product .info {
   word-wrap: break-word;
 }
 
-.modelo1 {
-  box-shadow: 8px 8px 0px #154580;
-}
-
-.modelo2 {
-  box-shadow: 8px 8px 0px #6BD1FF;
-}
-
-.modelo3 {
-  box-shadow: 8px 8px 0px #84EEC1;
-}
-
-.pensamento-g {
-  width: 556px;
-}
-
-.pensamento-p {
-  width: 262px;
-}
-
 @media screen and (max-width: 768px) {
-  .pensamento-g {
+  .product-g {
     width: 100%;
   }
 }
 @media screen and (max-width: 426px) {
-  .pensamento-p {
+  .product-p {
     width: 100%;
   }
 }

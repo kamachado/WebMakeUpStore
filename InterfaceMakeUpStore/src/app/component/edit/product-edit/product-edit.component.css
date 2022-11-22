@@ -1,0 +1,55 @@
+.actions {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .button {
+    margin: 5px;
+  }
+  
+  .edit-product {
+    padding: 2rem 0;
+  }
+  
+  .edit-product form {
+    background: #C4EDFF;
+  
+    border: none;
+    border-radius: 20px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    padding: 2rem;
+  }
+  
+  .edita-product form label {
+    color: #154580;
+    font-weight: bold;
+    margin: 0 0 1rem;
+  }
+  
+  .edit-product form .input {
+    border: none;
+    height: 40px;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    margin: 0.5rem 0 2rem;
+  }
+  
+  
+  .edit-product form .textarea {
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    margin: 0.5rem 0 2rem;
+  }
+ 
+  
+
+  input[type='radio'] {
+    display: none;
+  }
+  
+  
+

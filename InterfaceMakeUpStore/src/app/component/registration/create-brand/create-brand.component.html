@@ -13,13 +13,15 @@
       id="name"
       name="name"
       placeholder="Enter the name"
+      [(ngModel)]="brand.name" 
     />
       <label for="bodyPart">Select the country</label>
-      <select class="input"  >
-        <option valeu="eyes">Eyes</option>
+      <select class="input" placeholder="Select the country" [(ngModel)]="brand.country" name="country" >
+        <option value="">Select the country</option>
+        <option *ngFor="let country of listCountry" [ngValue]="country">{{country}}</option>
       </select>
     <div class="action">
-      <button  class="button">Save</button>
+      <button (click)="createBrand()"  class="button">Save</button>
       <button routerLink="/listProduct" class="button">Cancel</button>
     </div>
   </form>

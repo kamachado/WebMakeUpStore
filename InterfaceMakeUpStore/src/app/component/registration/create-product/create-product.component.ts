@@ -19,8 +19,7 @@ export class CreateProductComponent implements OnInit {
     quantity:0,
     idBrand:0,
     type:'',
-    bodyPart:'',
-    photo:new FormData
+    bodyPart:''
  };
 
  @Input() listBrands:Brand[] = [];
@@ -43,16 +42,5 @@ export class CreateProductComponent implements OnInit {
     })
   }
 
-  onFileSelected(event: any) {
-
-    const file:File = event.target.files[0];
-
-    if (file) {
-
-        const formData = new FormData();
-        formData.append(this.product.name, file);
-        this.product.photo = formData;
-    }
-  }
 
 }

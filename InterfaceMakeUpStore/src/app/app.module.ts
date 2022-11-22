@@ -12,6 +12,8 @@ import { ProductComponent } from './component/product/product/product.component'
 import { HttpClientModule} from '@angular/common/http';
 import { FirstPageComponent } from './component/registration/first-page/first-page.component';
 import { FormsModule } from '@angular/forms';
+import { ProductDeleteComponent } from './component/delete/product-delete/product-delete.component';
+import { ProductEditComponent } from './component/edit/product-edit/product-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { FormsModule } from '@angular/forms';
     CreateBrandComponent,
     ProductListComponent,
     ProductComponent,
-    FirstPageComponent
+    FirstPageComponent,
+    ProductDeleteComponent,
+    ProductEditComponent
   ],
   imports: [
     BrowserModule,

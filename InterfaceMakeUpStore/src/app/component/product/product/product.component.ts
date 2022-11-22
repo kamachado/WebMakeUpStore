@@ -1,5 +1,7 @@
 import { Product } from './../../../Models/Product';
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/Services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -9,6 +11,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ProductComponent implements OnInit {
 
   @Input() product:Product ={
+    id:0,
      name:'',
      description:'',
      price:0,
@@ -20,9 +23,18 @@ export class ProductComponent implements OnInit {
   };
 
   
-  constructor() { }
+  
+  constructor(private service:ProductService,private router: Router) {  }
 
   ngOnInit(): void {
   }
+
+  delete(){
+    this.service.delete(this.product.id).subscribe(()=>{
+      alert(`The product ${this.product.name} has been deleted` )
+      this.router.navigate(['/listarPensamento'])
+    });
+  }
+
 
 }
