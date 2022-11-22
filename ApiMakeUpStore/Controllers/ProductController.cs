@@ -99,20 +99,13 @@ namespace ApiMakeUpStore.Controllers
         ///  Insert a new Product
         /// </summary>
         /// <param name="dataProduct"></param>
-        /// <param name="file"></param>
         /// <returns></returns>
         /// <exception cref="ApiException"></exception>
         [HttpPost]
-        public async Task Post([FromQuery]CreateProductDto dataProduct,IFormFile file)
+        public async Task Post([FromBody]CreateProductDto dataProduct)
         {
-            if (file == null) throw new ApiException(400, "It is required send a photo");
-
             var newProduct = _mapper.Map<Product>(dataProduct);
-
-            var format = _productService.GetFileFormat(file.FileName);
-            if (format == ".jpeg" || format == ".png" || format == ".jpg") await _productService.InsertProduct(newProduct, file);
-            else throw new ApiException(400, "the file must be a photo (jpeg / jpg / png)" );
-
+            await _productService.InsertProduct(newProduct);
         }
 
         /// <summary>

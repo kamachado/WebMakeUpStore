@@ -41,10 +41,6 @@ namespace ApiMakeUpStore.Models
         [Column("QUANTITY_PRODUCT")]
         public int Quantity { get; set; }
 
-
-        [Column("PHOTO_PRODUCT")]
-        public string? Photo { get; set; }
-
         [JsonIgnore]
         [ForeignKey("IdBrand")]
         public Brand? Brand { get; set; }

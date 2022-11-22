@@ -5,7 +5,7 @@
       new product:
     </h2>
   </header>
-  <form>
+  <form >
     <label for="name">Name</label>
     <input
       type="textarea"
@@ -101,8 +101,8 @@
       </div>
 
     </div>
-      <label for="bodyPart">Select a body part</label>
-      <select class="input"  >
+      <label for="BodyPart">Select a body part</label>
+      <select class="input" name="select_bodyPart" [(ngModel)]="product.bodyPart" >
         <option value="eyes">Eyes</option>
         <option value="face">Face</option>
         <option value="Lips">Lips</option>
@@ -119,8 +119,6 @@
       <input class="input" type="number" id="price" placeholder="Enter the price" [(ngModel)]="product.price" name="price"/>
       <label for="quantity">Quantity</label>
       <input class="input" type="number" id="quantity" placeholder="Enter the quantity"  [(ngModel)]="product.quantity" name="quantity"/>
-      <label for="photo">Photo</label>
-      <input class="input" type="file" id="photo"  placeholder="Select the photo" (change)="onFileSelected($event)" name="photo"/>
     <div class="action">
       <button (click)="createProduct()" class="button">Save</button>
       <button routerLink="/listProduct" class="button">Cancel</button>

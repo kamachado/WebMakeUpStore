@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Brand } from 'src/app/Models/Brand';
 import { ProductData } from 'src/app/Models/Product';
 import { BrandService } from 'src/app/Services/brand.service';
@@ -24,18 +25,22 @@ export class CreateProductComponent implements OnInit {
 
  @Input() listBrands:Brand[] = [];
 
-  constructor(private serviceBrand: BrandService, private serviceProduct: ProductService,  ) { }
+  constructor(private serviceBrand: BrandService, private serviceProduct: ProductService,private router: Router  ) { }
 
-  createProduct(){
-    this.serviceProduct.post(this.product);
-    alert(`The product ${this.product.name} has been registered`)
-  }
+  
 
   ngOnInit(): void {
     this.serviceBrand.getList().subscribe((resultBrand) => {
       this.listBrands = resultBrand.result;
     });
 
+  }
+
+  createProduct(){
+   this.serviceProduct.post(this.product).subscribe(() => {
+      alert(`Product ${this.product.name} has been registered`)
+      this.router.navigate(['/listProduct'])
+    })
   }
 
   onFileSelected(event: any) {
@@ -45,7 +50,6 @@ export class CreateProductComponent implements OnInit {
     if (file) {
 
         const formData = new FormData();
-
         formData.append(this.product.name, file);
         this.product.photo = formData;
     }

@@ -16,15 +16,16 @@ export class ProductService {
     return this.http.get<ResultListProduct>(this.API)
   }
 
-  post(product: ProductData): void {
+  post(product: ProductData): Observable<ProductData> {
     const url = `${this.API}/?Name=${product.name}&IdBrand=${product.idBrand}&Description=${product.description}&Type=${product.type}&BodyPart=${product.bodyPart}&Price=${product.price}&Quantity=${product.quantity}`
-    this.http.post<ProductData>(url, product.photo)
+    return this.http.post<ProductData>(url, product.photo,  {headers: {
+      'Content-Type': 'multipart/fom-data; boundary=----WebKitFormBoundaryJBOqmMBvbgbzv5XX'
+    }})
   }
 
   update(product: Product): Observable<Product> {
     const url = `${this.API}/${product.id}`
-    return this.http.put<Product>(url, product )
-
+    return this.http.put<Product>(url, product, )
   }
 
   delete(id: number): Observable<Product> {
