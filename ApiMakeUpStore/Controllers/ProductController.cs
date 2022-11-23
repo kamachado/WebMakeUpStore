@@ -3,6 +3,7 @@ using ApiMakeUpStore.Data.Dtos.Product;
 using ApiMakeUpStore.Data.Extensions_Data;
 using ApiMakeUpStore.Models;
 using ApiMakeUpStore.Services;
+using ApiMakeUpStore.Validator;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
@@ -60,10 +61,12 @@ namespace ApiMakeUpStore.Controllers
     {
         private readonly IProductService _productService;
         private IMapper _mapper;
-        public ProductController(IProductService service, IMapper mapper) : base(service)
+        private readonly ProductValidator _validator;
+        public ProductController(IProductService service, IMapper mapper, ProductValidator validator) : base(service)
         {
             _productService = service;  
             _mapper = mapper;
+            _validator = validator;
         }
 
 
@@ -107,7 +110,11 @@ namespace ApiMakeUpStore.Controllers
         public async Task Post([FromBody]CreateProductDto dataProduct)
         {
             var newProduct = _mapper.Map<Product>(dataProduct);
-            await _productService.InsertProduct(newProduct);
+            var productValidate = _validator.Validate(newProduct);
+            if (productValidate.IsValid)
+            {
+                await _productService.InsertProduct(newProduct);
+            }
         }
 
         /// <summary>

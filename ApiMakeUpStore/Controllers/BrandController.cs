@@ -2,6 +2,7 @@
 using ApiMakeUpStore.Data.Extensions_Data;
 using ApiMakeUpStore.Models;
 using ApiMakeUpStore.Services;
+using ApiMakeUpStore.Validator;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
@@ -34,10 +35,12 @@ namespace ApiMakeUpStore.Controllers
     {
         private readonly IBrandService _brandService;
         private IMapper _mapper;
-        public BrandController(IBrandService service, IMapper mapper) : base(service)
+        private readonly BrandValidator _validator;
+        public BrandController(IBrandService service, IMapper mapper, BrandValidator validator) : base(service)
         {
             _brandService = service;
             _mapper = mapper;
+            _validator = validator;
         }
 
         /// <summary>
@@ -73,8 +76,9 @@ namespace ApiMakeUpStore.Controllers
         public async Task Post([FromBody] CreateBrandDto dataBrand)
         {
             var brand = _mapper.Map<Brand>(dataBrand);
+            var brandOk = _validator.Validate(brand);
 
-            await _brandService.Insert(brand);
+            if(brandOk.IsValid) await _brandService.Insert(brand);
         }
 
         /// <summary>
