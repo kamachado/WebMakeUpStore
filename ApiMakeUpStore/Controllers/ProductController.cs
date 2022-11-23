@@ -42,9 +42,10 @@ namespace ApiMakeUpStore.Controllers
         /// </summary>
         [FromQuery(Name = "minPrice")] public double MinPrice { get; set; } = 0;
 
-        public void Deconstruct(out string? type, out string? bodyPart, out int? brand, out double maxPrice, out double minPrice )
+        public void Deconstruct(out string? type,out string? name, out string? bodyPart, out int? brand, out double? maxPrice, out double? minPrice )
         {
             type = Type;
+            name = Name;
             bodyPart = BodyPart;
             brand = Brand;
             maxPrice = MaxPrice;
@@ -74,7 +75,7 @@ namespace ApiMakeUpStore.Controllers
         [HttpGet]
         public async Task<ListResult<ReadProductDto>> GetList([FromQuery] ProductGetListQueryFilter queryFilter)
         {
-            var (type,bodyPart,brand,
+            var (type,name,bodyPart, brand,
             maxPrice,minPrice ) = queryFilter;
 
             if(maxPrice != 0 && minPrice != 0 && maxPrice < minPrice ) throw new ApiException(500, "Erro ao buscar categorias");
@@ -82,10 +83,11 @@ namespace ApiMakeUpStore.Controllers
             Expression<Func<Product, bool>>? condition = null;
 
             if (type != null) condition = condition.And(p => p.Type == type);
-            if (bodyPart != null) condition = condition.And (p=> p.BodyPart == bodyPart);
+            if (bodyPart != null) condition = condition.And (p => p.BodyPart == bodyPart);
+            if (name != null) condition = condition.And(p => p.Name == name);
             if (brand != 0) condition = condition.And(p => p.IdBrand == brand);
-            if (maxPrice != 0) condition = condition.And(p => p.Price >= maxPrice);
-            if (minPrice != 0) condition = condition.And(p => p.Price <= maxPrice);
+            if (maxPrice != 0) condition = condition.And(p => p.Price <= maxPrice);
+            if (minPrice != 0) condition = condition.And(p => p.Price >= minPrice);
 
             var result = await _productService.GetList(condition);
             var products = _mapper.Map<IList<ReadProductDto>>(result);

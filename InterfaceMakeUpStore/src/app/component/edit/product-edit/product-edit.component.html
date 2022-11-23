@@ -3,10 +3,8 @@
       <h2>Edit the quantity of the Product <br>{{product.name}}:</h2>
     </header>
     <form>
-        <label for="quantity">Quantity</label>
+        <label for="quantity"></label>
         <input class="input" type="number" id="quantity" placeholder="Enter the new quantity"  [(ngModel)]="product.quantity" name="quantity"/>
-      <div class="action">
-      </div>
       <div class="actions">
         <button (click)="editProduct()" class="button">Salve</button>
         <button (click)="cancel()" class="button">Cancel</button>

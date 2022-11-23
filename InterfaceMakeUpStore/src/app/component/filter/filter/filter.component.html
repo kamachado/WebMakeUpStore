@@ -1,0 +1,93 @@
+<div>
+    <header class="header">
+        <h2>Product search</h2>
+    </header>
+    <form>
+        <label for="price">Name</label>
+        <input class="input" type="text" id="quantity" placeholder="Inform the price" [(ngModel)]="product.quantity" name="quantity" />
+        <label for="type">Type</label>
+        <div class="container-radio">
+            <div class="radio-model">
+                <label for="model1">
+                    <input type="radio" id="model1" value="eyeshadow" name="model-card" [(ngModel)]="product.type"
+                        name="model1" />
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Eyeshadow</span>
+                </label>
+                <div class="model model1 ff-roboto-mono">
+                    <img style="height: 4em; width: 5em; margin-left: 1em" src="../../../../assets/Images/eyeshadow.png"
+                        alt="person using blush" />
+                </div>
+            </div>
+            <div class="radio-model">
+                <label for="model2">
+                    <input type="radio" id="model2" value="blush" name="model-card" [(ngModel)]="product.type"
+                        name="model2" />
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Blush</span>
+                </label>
+                <div class="model model2 ff-roboto-mono">
+                    <img style="height: 4em; width: 5em" src="../../../../assets/Images/blush.png"
+                        alt="person using blush" />
+                </div>
+            </div>
+            <div class="radio-model">
+                <label for="model3">
+                    <input type="radio" id="model3" value="lipstick" name="model-card" [(ngModel)]="product.type"
+                        name="model3" />
+                    <div class="custom-radio">
+                        <span></span>
+                    </div>
+                    <span>Lipstick</span>
+                </label>
+                <div class="model model3 ff-roboto-mono">
+                    <img style="height: 4em; width: 5em" src="../../../../assets/Images/lipstick.png"
+                        alt="person using lipstick" />
+                </div>
+            </div>
+            <div>
+                <div class="radio-model">
+                    <label for="model4">
+                        <input type="radio" id="model4" value="skincare" name="model-card" [(ngModel)]="product.type"
+                            name="model4" />
+                        <div class="custom-radio">
+                            <span></span>
+                        </div>
+                        <span>Skincare</span>
+                    </label>
+                    <div class="model model4 ff-roboto-mono">
+                        <img style="height: 4em; width: 5em" src="../../../../assets/Images/skincare.png"
+                            alt="person doing skincare" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <label for="BodyPart">Select a body part</label>
+        <select class="input" name="select_bodyPart" [(ngModel)]="product.bodyPart">
+            <option value="eyes">Eyes</option>
+            <option value="face">Face</option>
+            <option value="Lips">Lips</option>
+            <option value="Hands">Hands</option>
+            <option value="Feet">Feet</option>
+        </select>
+        <label for="brand">Select a brand</label>
+        <select class="input" name="select_brand" [(ngModel)]="product.idBrand">
+            <option *ngFor="let brand of listBrands" [ngValue]="brand.id">
+                <p>{{ brand.name }}</p>
+            </option>
+        </select>
+        <label for="price">Maximum price</label>
+        <input class="input" type="number" id="quantity" placeholder="Inform the price" [(ngModel)]="product.quantity" name="quantity" />
+        <label for="price">Minimum price</label>
+        <input class="input" type="number" id="quantity" placeholder="Inform the price" [(ngModel)]="product.quantity"
+            name="quantity" />
+        <div class="actions">
+            <button (click)="searchProduct()" class="button">Search</button>
+            <button (click)="cancel()" class="button">Cancel</button>
+        </div>
+    </form>
+</div>

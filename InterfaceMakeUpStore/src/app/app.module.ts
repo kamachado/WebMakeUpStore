@@ -14,6 +14,7 @@ import { FirstPageComponent } from './component/registration/first-page/first-pa
 import { FormsModule } from '@angular/forms';
 import { ProductDeleteComponent } from './component/delete/product-delete/product-delete.component';
 import { ProductEditComponent } from './component/edit/product-edit/product-edit.component';
+import { FilterComponent } from './component/filter/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductEditComponent } from './component/edit/product-edit/product-edit
     ProductComponent,
     FirstPageComponent,
     ProductDeleteComponent,
-    ProductEditComponent
+    ProductEditComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
