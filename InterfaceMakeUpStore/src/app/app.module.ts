@@ -9,7 +9,7 @@ import { CreateProductComponent } from './component/registration/create-product/
 import { CreateBrandComponent } from './component/registration/create-brand/create-brand.component';
 import { ProductListComponent } from './component/List/product-list/product-list.component';
 import { ProductComponent } from './component/product/product/product.component';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HttpParams} from '@angular/common/http';
 import { FirstPageComponent } from './component/registration/first-page/first-page.component';
 import { FormsModule } from '@angular/forms';
 import { ProductDeleteComponent } from './component/delete/product-delete/product-delete.component';

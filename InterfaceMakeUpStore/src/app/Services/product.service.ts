@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product, ProductData, ResultListProduct } from '../Models/Product';
@@ -36,5 +36,9 @@ export class ProductService {
     return this.http.get<Product>(url)
   }
 
-  
+  getListWithFilters(params: HttpParams): Observable<any> {
+    const url = `${this.API}`
+    return this.http.get<ResultListProduct>(this.API,{params});
+  }
+
 }
