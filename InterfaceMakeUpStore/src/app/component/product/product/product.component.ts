@@ -29,12 +29,5 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  delete(){
-    this.service.delete(this.product.id).subscribe(()=>{
-      alert(`The product ${this.product.name} has been deleted` )
-      this.router.navigate(['/listarPensamento'])
-    });
-  }
-
 
 }
