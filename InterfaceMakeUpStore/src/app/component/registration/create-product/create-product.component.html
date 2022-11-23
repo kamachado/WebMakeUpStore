@@ -103,6 +103,7 @@
     </div>
       <label for="BodyPart">Select a body part</label>
       <select class="input" name="select_bodyPart" [(ngModel)]="product.bodyPart" >
+        <option value="">Select a body Part</option>
         <option value="eyes">Eyes</option>
         <option value="face">Face</option>
         <option value="Lips">Lips</option>
@@ -111,6 +112,7 @@
       </select>
       <label for="brand">Select a brand</label>
       <select class="input"  name="select_brand"  [(ngModel)]="product.idBrand"  >
+        <option value="">Select a brand</option>
         <option *ngFor="let brand of listBrands" [ngValue]="brand.id">
           <p>{{ brand.name }}</p>
         </option>
