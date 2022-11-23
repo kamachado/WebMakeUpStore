@@ -36,6 +36,35 @@ export class CreateProductComponent implements OnInit {
   }
 
   createProduct(){
+    if(this.product.name == ""){
+      alert("The name is required");
+      return;
+    }
+    if(this.product.description == ""){
+      alert("The Description is required");
+      return;
+    } 
+    if(this.product.type == ""){
+      alert("The type is required");
+      return;
+    }
+    if(this.product.bodyPart == ""){
+      alert("The body part is required");
+      return;
+    }
+    if(this.product.idBrand == 0){
+      alert("The brand is required");
+      return;
+    }
+    if(this.product.price == 0){
+      alert("The price is required");
+      return;
+    }
+    if(this.product.quantity == 0){
+      alert("The quantity is required");
+      return;
+    }
+    
    this.serviceProduct.post(this.product).subscribe(() => {
       alert(`Product ${this.product.name} has been registered`)
       this.router.navigate(['/listProduct'])

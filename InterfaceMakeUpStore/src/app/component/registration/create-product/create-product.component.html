@@ -14,6 +14,7 @@
       name="name"
       placeholder="Enter the name"
       [(ngModel)]="product.name"
+      required
     />
     <label for="description">Description</label>
     <input
@@ -23,12 +24,13 @@
       name="description"
       placeholder="Enter the description"
       [(ngModel)]="product.description"
+      required
     />
     <label for="type">Select a type</label>
     <div class="container-radio">
       <div class="radio-model">
         <label for="model1">
-          <input type="radio" id="model1" value="eyeshadow" name="model-card" [(ngModel)]="product.type" name="model1"/>
+          <input type="radio" id="model1" value="eyeshadow" name="model-card" [(ngModel)]="product.type" name="model1" required/>
           <div class="custom-radio">
             <span></span>
           </div>
@@ -44,7 +46,7 @@
       </div>
       <div class="radio-model">
         <label for="model2">
-          <input type="radio" id="model2" value="blush" name="model-card" [(ngModel)]="product.type" name="model2" />
+          <input type="radio" id="model2" value="blush" name="model-card" [(ngModel)]="product.type" name="model2" required />
           <div class="custom-radio">
             <span></span>
           </div>
@@ -60,7 +62,7 @@
       </div>
       <div class="radio-model">
         <label for="model3">
-          <input type="radio" id="model3" value="lipstick" name="model-card" [(ngModel)]="product.type" name="model3" />
+          <input type="radio" id="model3" value="lipstick" name="model-card" [(ngModel)]="product.type" name="model3" required />
           <div class="custom-radio">
             <span></span>
           </div>
@@ -102,7 +104,7 @@
 
     </div>
       <label for="BodyPart">Select a body part</label>
-      <select class="input" name="select_bodyPart" [(ngModel)]="product.bodyPart" >
+      <select class="input" name="select_bodyPart" [(ngModel)]="product.bodyPart" required>
         <option value="">Select a body Part</option>
         <option value="eyes">Eyes</option>
         <option value="face">Face</option>
@@ -118,9 +120,9 @@
         </option>
       </select>
       <label for="price">Price</label>
-      <input class="input" type="number" id="price" placeholder="Enter the price" [(ngModel)]="product.price" name="price"/>
+      <input class="input" type="number" id="price" placeholder="Enter the price" [(ngModel)]="product.price" name="price" required/>
       <label for="quantity">Quantity</label>
-      <input class="input" type="number" id="quantity" placeholder="Enter the quantity"  [(ngModel)]="product.quantity" name="quantity"/>
+      <input class="input" type="number" id="quantity" placeholder="Enter the quantity"  [(ngModel)]="product.quantity" name="quantity" required/>
     <div class="action">
       <button (click)="createProduct()" class="button">Save</button>
       <button routerLink="/listProduct" class="button">Cancel</button>

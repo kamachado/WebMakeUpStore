@@ -14,9 +14,10 @@
       name="name"
       placeholder="Enter the name"
       [(ngModel)]="brand.name" 
+      required
     />
       <label for="bodyPart">Select the country</label>
-      <select class="input" placeholder="Select the country" [(ngModel)]="brand.country" name="country" >
+      <select class="input" placeholder="Select the country" [(ngModel)]="brand.country" name="country" required >
         <option value="">Select the country</option>
         <option *ngFor="let country of listCountry" [ngValue]="country">{{country}}</option>
       </select>
