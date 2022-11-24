@@ -1,0 +1,9 @@
+services:
+  backend:
+    build: ApiMakeUpStore/
+    ports:
+      - "5258:80"
+  frontend:
+    build: InterfaceMakeUpStore/
+    ports:
+      - "80:80"

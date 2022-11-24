@@ -1,5 +1,8 @@
 using ApiMakeUpStore.Extensions;
 using ApiMakeUpStore.Middleware;
+using ApiMakeUpStore.Models;
+using ApiMakeUpStore.Validator;
+using FluentValidation;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Text.Json.Serialization;
@@ -35,6 +38,8 @@ builder.Services.AddSwaggerGen(a =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddServices();
 builder.Services.AddRepositories();
+builder.Services.AddScoped<IValidator<Brand>,BrandValidator>();
+builder.Services.AddScoped<IValidator<Product>, ProductValidator>();
 builder.Services.AddControllers().AddJsonOptions(x =>
 {
     x.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());

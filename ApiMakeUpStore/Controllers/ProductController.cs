@@ -5,6 +5,7 @@ using ApiMakeUpStore.Models;
 using ApiMakeUpStore.Services;
 using ApiMakeUpStore.Validator;
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 
@@ -61,8 +62,8 @@ namespace ApiMakeUpStore.Controllers
     {
         private readonly IProductService _productService;
         private IMapper _mapper;
-        private readonly ProductValidator _validator;
-        public ProductController(IProductService service, IMapper mapper, ProductValidator validator) : base(service)
+        private readonly IValidator<Product> _validator;
+        public ProductController(IProductService service, IMapper mapper, IValidator<Product> validator) : base(service)
         {
             _productService = service;  
             _mapper = mapper;

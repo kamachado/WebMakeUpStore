@@ -4,6 +4,7 @@ using ApiMakeUpStore.Models;
 using ApiMakeUpStore.Services;
 using ApiMakeUpStore.Validator;
 using AutoMapper;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
 
@@ -35,8 +36,8 @@ namespace ApiMakeUpStore.Controllers
     {
         private readonly IBrandService _brandService;
         private IMapper _mapper;
-        private readonly BrandValidator _validator;
-        public BrandController(IBrandService service, IMapper mapper, BrandValidator validator) : base(service)
+        private readonly IValidator<Brand> _validator;
+        public BrandController(IBrandService service, IMapper mapper, IValidator<Brand> validator) : base(service)
         {
             _brandService = service;
             _mapper = mapper;
