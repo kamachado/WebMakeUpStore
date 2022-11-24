@@ -33,7 +33,7 @@ The applicantion has a Swagger that we can see all the Endpoints
 - Get by Id a Product;
 
 - Get by Id a Brand;
-![image](https://user-images.githubusercontent.com/996…
+![image](https://user-images.githubusercontent.com/99664910/203824143-3240a154-65c1-4dcf-b382-223df9104dc0.png)
 
 
 <h2><b>Frontend</b></h2>
